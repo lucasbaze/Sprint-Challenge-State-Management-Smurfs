@@ -1,6 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./components/App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './components/App';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import { StateProvider } from './state';
+import reducer from './reducers';
+
+const initialState = {
+    smurfs: [],
+};
+
+ReactDOM.render(
+    <StateProvider initialState={initialState} reducer={reducer}>
+        <App />
+    </StateProvider>,
+    document.getElementById('root')
+);
