@@ -6,6 +6,7 @@ import { useStateValue } from '../state';
 import { getSmurfs } from '../reducers';
 
 import { Header, Table, Icon, Container } from 'semantic-ui-react';
+import SmurfForm from './Form';
 
 const App = () => {
     const [{ smurfs }, dispatch] = useStateValue();
@@ -19,7 +20,7 @@ const App = () => {
             <h1>SMURFS! 2.0 W/ Redux</h1>
             <div>Welcome to your state management version of Smurfs!</div>
             <div>Start inside of your `src/index.js` file!</div>
-
+            <SmurfForm />
             <Container style={{ marginTop: 20 }}>
                 {!Array.isArray(smurfs) || !smurfs.length ? (
                     <Header as="h1" content="Loading" />
@@ -41,14 +42,19 @@ const App = () => {
 
                         <Table.Body>
                             {smurfs.map(smurf => {
-                                let cells = {
-                                    0: smurf.id,
-                                    1: smurf.name,
-                                    2: smurf.age,
-                                    3: smurf.height,
-                                };
+                                let cells = [
+                                    smurf.id,
+                                    smurf.name,
+                                    smurf.age,
+                                    smurf.height,
+                                ];
 
-                                return <Table.Row cells={cells}></Table.Row>;
+                                return (
+                                    <Table.Row
+                                        key={smurf.id}
+                                        cells={cells}
+                                    ></Table.Row>
+                                );
                             })}
                         </Table.Body>
                     </Table>

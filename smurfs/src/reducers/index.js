@@ -36,3 +36,22 @@ export const getSmurfs = async dispatch => {
         payload: payload,
     });
 };
+
+export const postSmurf = async (smurf, dispatch) => {
+    let { name, age, height } = smurf;
+
+    let response = await fetch('http://localhost:3333/smurfs', {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'default',
+        credentials: 'omit',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        redirect: 'follow',
+        referrer: 'client',
+        body: JSON.stringify({ name, age, height }),
+    }).then(response => console.log(response.json()));
+
+    getSmurfs(dispatch);
+};
