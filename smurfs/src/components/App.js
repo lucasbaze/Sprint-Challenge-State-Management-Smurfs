@@ -7,7 +7,9 @@ import { getSmurfs } from '../reducers';
 const App = () => {
     const [{ smurfs }, dispatch] = useStateValue();
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        getSmurfs(dispatch);
+    }, []);
 
     return (
         <div className="App">
