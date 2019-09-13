@@ -41,7 +41,7 @@ const App = () => {
                         </Table.Header>
 
                         <Table.Body>
-                            {smurfs.map(smurf => {
+                            {smurfs.map((smurf, index) => {
                                 let cells = [
                                     smurf.id,
                                     smurf.name,
@@ -49,12 +49,7 @@ const App = () => {
                                     smurf.height,
                                 ];
 
-                                return (
-                                    <Table.Row
-                                        key={smurf.id}
-                                        cells={cells}
-                                    ></Table.Row>
-                                );
+                                return <Table.Row key={index} cells={cells} />;
                             })}
                         </Table.Body>
                     </Table>

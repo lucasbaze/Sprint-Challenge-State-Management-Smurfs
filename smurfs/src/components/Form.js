@@ -27,6 +27,7 @@ const SmurfForm = () => {
         <Form onSubmit={handleSubmit}>
             <Form.Group>
                 <Form.Input
+                    required
                     type="text"
                     name="name"
                     placeholder="Smurf Name"
@@ -34,6 +35,7 @@ const SmurfForm = () => {
                     onChange={handleChange}
                 />
                 <Form.Input
+                    required
                     type="text"
                     name="age"
                     placeholder="Smurf Age"
@@ -41,6 +43,7 @@ const SmurfForm = () => {
                     onChange={handleChange}
                 />
                 <Form.Input
+                    required
                     type="text"
                     name="height"
                     placeholder="Smurf Height"
